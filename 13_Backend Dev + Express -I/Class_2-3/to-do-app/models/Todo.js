@@ -1,16 +1,22 @@
+/*
+schema
+description of data that will be stored in database
+
+*/
+
 const mongoose = require("mongoose");
 
 // creating schema for todo
 const TodoSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true,
     maxLength: 50,
+    required: true,
   },
   description: {
     type: String,
-    required: true,
     maxLength: 50,
+    required: true,
   },
   createdAt: {
     type: Date,
@@ -18,10 +24,10 @@ const TodoSchema = new mongoose.Schema({
     required: true,
   },
   updatedAt: {
-      type: Date,
-      default: Date.now(),
-      required: true,
-  }
+    type: Date,
+    default: Date.now(),
+    required: true,
+  },
 });
 
-module.exports = mongoose.model("Todo", TodoSchema); // cn be used elsewhere as Todo
+module.exports = mongoose.model("Todo", TodoSchema); // exporting todoSchema as Todo
