@@ -1,12 +1,17 @@
 const express = require("express");
 const app = express();
 
+// load environment variables from .env file
 require("dotenv").config();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; // default port 3000
 
 // middleware to parse JSON request body
 app.use(express.json());
+
+// connect to Db
+const dbConnect = require("./config/database");
+dbConnect();
 
 // import routes for TODO API
 const todoRoutes = require("./routes/todos");
@@ -16,10 +21,6 @@ app.use("/api/v1", todoRoutes);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
-// connect to Db
-const dbConnect = require("./config/database");
-dbConnect();
 
 // default route
 app.get("/", (req, res) => {

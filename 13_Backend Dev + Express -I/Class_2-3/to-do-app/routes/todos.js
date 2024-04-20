@@ -9,9 +9,10 @@ const { deleteTodo} = require("../controllers/deleteTodo");
 
 // create
 
-// rotes are mapped with business logic which are present in controllers
+// routes are mapped with business logic which are present in controllers
 router.post("/createTodo", createTodo); // mapped path to controller function
-router.get("/getTodo", getTodo);
+
+router.get("/getTodo", getTodo); //(path,HANDLER_NAME) , handler imported from controller
 
 router.get("/getTodoById/:id", getTodoById);
 

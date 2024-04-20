@@ -30,4 +30,6 @@ const TodoSchema = new mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model("Todo", TodoSchema); // exporting todoSchema as Todo
+
+// exporting as mode;
+module.exports = mongoose.model("Todo", TodoSchema); // (name,schema) exporting todoSchema as Todo
