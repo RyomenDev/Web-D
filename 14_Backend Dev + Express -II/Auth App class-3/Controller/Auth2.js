@@ -58,6 +58,12 @@ exports.login = async (req, res) => {
         user,
         message: "User logged in successfully",
       });
+      // res.status(200).json({
+      //   success: true,
+      //   token,
+      //   user,
+      //   message: "User logged in successfully",
+      // });
     } else {
       // password not match
       return res.status(403).json({

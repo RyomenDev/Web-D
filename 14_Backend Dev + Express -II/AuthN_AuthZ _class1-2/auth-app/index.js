@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const cookieParser = require("cookie-parser");
 const app = express();
 
 require("dotenv").config();
@@ -8,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 // for parsing application/jso
 app.use(express.json());
+app.use(cookieParser());
 
 // db connection
 require("./config/database").connect();

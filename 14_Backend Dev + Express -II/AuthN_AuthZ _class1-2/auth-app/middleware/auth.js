@@ -19,7 +19,7 @@ exports.auth = (req, res, next) => {
     try {
       const decode = jwt.verify(token, process.env.JWT_SECRET);
 
-      console.log('decode',decode);
+      console.log("decode", decode);
 
       req.user = decode; // storing the decoded token in req.user (payload)
     } catch (e) {
