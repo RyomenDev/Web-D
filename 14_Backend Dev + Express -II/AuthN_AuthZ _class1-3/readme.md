@@ -2,7 +2,11 @@
 
 ## Authorization
 
+Authorization is the process of granting or restricting access to resources based on a set of rules or permissions. In the context of web applications, authorization is often used to control what actions a user can perform and what data they can access.
+
 ## Authentication
+
+Authentication is the process of verifying the identity of a user, typically before granting access to resources or services. It ensures that users are who they claim to be, allowing them to access the system or application securely.
 
 Cookies and JSON Web Tokens (JWT) are two common methods used for handling authentication and maintaining user sessions in web applications.
 

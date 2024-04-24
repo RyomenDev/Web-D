@@ -7,7 +7,9 @@ require("dotenv").config();
 // Login
 exports.login = async (req, res) => {
   try {
+    // fetch data from req.body
     const { email, password } = req.body;
+    // validate on email & password
     if (!email || !password) {
       return res.status(400).json({
         success: false,
@@ -32,6 +34,7 @@ exports.login = async (req, res) => {
       role: user.role,
     };
 
+    // hashed password in user - user.password
     if (await bcrypt.compare(password, user.password)) {
       // password match
       let token = jwt.sign(payload, process.env.JWT_SECRET, {
@@ -40,13 +43,15 @@ exports.login = async (req, res) => {
 
       user = user.toObject();
       user.token = token;
-      user.password = undefined;
+      user.password = undefined; // removing password from user object
 
+      // options for cookie
       const options = {
-        expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
-        httpOnly: true,
+        expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000), // 3 days
+        httpOnly: true, // not accessible by client side js
       };
 
+      // Cookie
       res.cookie("token", token, options).status(200).json({
         success: true,
         token,
