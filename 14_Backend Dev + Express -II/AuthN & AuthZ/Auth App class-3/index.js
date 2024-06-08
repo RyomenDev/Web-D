@@ -26,3 +26,4 @@ app.listen(PORT, () => {
 app.get("/", (req, res) => {
   res.send("<h1>Auth App</h1>");
 });
+
